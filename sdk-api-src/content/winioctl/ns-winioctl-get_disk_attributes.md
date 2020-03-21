@@ -44,80 +44,29 @@ req.redist:
 
 # GET_DISK_ATTRIBUTES structure
 
-
 ## -description
 
-
-Contains the attributes of a disk device. Returned as the output buffer from the 
-    <a href="https://docs.microsoft.com/windows/desktop/api/winioctl/ni-winioctl-ioctl_disk_get_disk_attributes">IOCTL_DISK_GET_DISK_ATTRIBUTES</a> control 
-    code.
-
+Contains the attributes of a disk device. Returned as the output buffer from the [**IOCTL_DISK_GET_DISK_ATTRIBUTES**](ni-winioctl-ioctl_disk_get_disk_attributes.md) control code.
 
 ## -struct-fields
 
-
-
-
 ### -field Version
 
-Set to <code>sizeof(GET_DISK_ATTRIBUTES)</code>.
-
+Set to **sizeof**(GET_DISK_ATTRIBUTES).
 
 ### -field Reserved1
 
 Reserved.
 
-
 ### -field Attributes
 
 Contains attributes.
 
-<table>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-</tr>
-<tr>
-<td width="40%"><a id="DISK_ATTRIBUTE_OFFLINE"></a><a id="disk_attribute_offline"></a><dl>
-<dt><b>DISK_ATTRIBUTE_OFFLINE</b></dt>
-<dt>0x0000000000000001</dt>
-</dl>
-</td>
-<td width="60%">
-The disk is offline.
-
-</td>
-</tr>
-<tr>
-<td width="40%"><a id="DISK_ATTRIBUTE_READ_ONLY"></a><a id="disk_attribute_read_only"></a><dl>
-<dt><b>DISK_ATTRIBUTE_READ_ONLY</b></dt>
-<dt>0x0000000000000002</dt>
-</dl>
-</td>
-<td width="60%">
-The disk is read-only.
-
-</td>
-</tr>
-</table>
- 
-
+| Value | | Meaning |
+| --- | --- | --- |
+| **DISK_ATTRIBUTE_OFFLINE** | 0x0000000000000001 | The disk is offline. |
+| **DISK_ATTRIBUTE_READ_ONLY** | 0x0000000000000002 | The disk is read-only. |
 
 ## -see-also
 
-
-
-
-<a href="https://docs.microsoft.com/windows/desktop/FileIO/disk-management-structures">Disk Management Structures</a>
-
-
-
-<a href="https://docs.microsoft.com/windows/desktop/api/winioctl/ni-winioctl-ioctl_disk_get_disk_attributes">IOCTL_DISK_GET_DISK_ATTRIBUTES</a>
-
-
-
-<a href="https://docs.microsoft.com/windows/desktop/api/winioctl/ni-winioctl-ioctl_disk_set_disk_attributes">SET_DISK_ATTRIBUTES</a>
- 
-
- 
-
+[Disk Management Structures](/windows/desktop/FileIO/disk-management-structures), [IOCTL_DISK_GET_DISK_ATTRIBUTES](ni-winioctl-ioctl_disk_get_disk_attributes.md), [SET_DISK_ATTRIBUTES](ni-winioctl-ioctl_disk_set_disk_attributes.md)
