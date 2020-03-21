@@ -44,118 +44,69 @@ req.redist:
 
 # IOCTL_DISK_VERIFY IOCTL
 
-
 ## -description
-
 
 Verifies the specified extent on a fixed disk.
 
-To perform this operation, call the 
-<a href="https://docs.microsoft.com/windows/desktop/api/ioapiset/nf-ioapiset-deviceiocontrol">DeviceIoControl</a> function with the following parameters.
-<div class="code"><span codelanguage="ManagedCPlusPlus"><table>
-<tr>
-<th>C++</th>
-</tr>
-<tr>
-<td>
-<pre>BOOL DeviceIoControl(
-  (HANDLE) hDevice,            // handle to device
-  IOCTL_DISK_VERIFY,           // dwIoControlCode(LPVOID) lpInBuffer,         // input buffer 
-  (DWORD) nInBufferSize,       // size of input buffer 
-  NULL,                        // lpOutBuffer0,                           // nOutBufferSize(LPDWORD) lpBytesReturned,   // number of bytes returned
-  (LPOVERLAPPED) lpOverlapped  // OVERLAPPED structure
-);</pre>
-</td>
-</tr>
-</table></span></div>
+To perform this operation, call the [**DeviceIoControl**](../ioapiset/nf-ioapiset-deviceiocontrol.md) function with the following parameters.
 
-## -ioctlparameters
+```cpp
+BOOL DeviceIoControl(
+  (HANDLE) hDevice,                // handle to device
+  IOCTL_DISK_VERIFY,               // dwIoControlCode
+  (LPVOID) lpInBuffer,             // input buffer
+  (DWORD) nInBufferSize,           // size of input buffer
+  NULL,                            // lpOutBuffer
+  0,                               // nOutBufferSize
+  (LPDWORD) lpBytesReturned,       // number of bytes returned
+  (LPOVERLAPPED) lpOverlapped      // OVERLAPPED structure
+);
+```
 
+## -parameters
 
+### -param hDevice [in]
 
+A handle to the disk.
 
-### -input-buffer
+To retrieve a device handle, call the [**CreateFile**](../fileapi/nf-fileapi-createfilew.md) function.
 
+### -param dwIoControlCode [in]
 
+The control code for the operation.
 
-<text></text>
+Use **IOCTL_DISK_VERIFY** for this operation.
 
+### -param lpInBuffer [in, optional]
 
+A pointer to the input buffer that contains the [**VERIFY_INFORMATION**](ns-winioctl-verify_information.md) data to be set.
 
+### -param nInBufferSize [in]
 
-### -input-buffer-length
+The size of the input buffer, in bytes. It must be >= **sizeof**(VERIFY_INFORMATION).
 
+### -param lpOutBuffer [out, optional]
 
+Not used with this operation. Set to **NULL**.
 
-<text></text>
+### -param nOutBufferSize [in]
 
+The size of the input buffer, in bytes. Set to 0 (zero).
 
+### -param lpBytesReturned [out, optional]
 
+A pointer to a variable that receives the size of the data stored in the output buffer, in bytes.
 
-### -output-buffer
+### -param lpOverlapped [in, out, optional]
 
+A pointer to an [**OVERLAPPED**](../minwinbase/ns-minwinbase-overlapped.md) structure.
 
+## -returns
 
-<text></text>
+If the operation completes successfully, the return value is nonzero.
 
-
-
-
-### -output-buffer-length
-
-
-
-<text></text>
-
-
-
-
-### -in-out-buffer
-
-
-
-<text></text>
-
-
-
-
-### -inout-buffer-length
-
-
-
-<text></text>
-
-
-
-
-### -status-block
-
-
-
-Irp->IoStatus.Status is set to STATUS_SUCCESS if the request is successful.
-
-Otherwise, Status to the appropriate error condition as a NTSTATUS code. 
-
-For more information, see [NTSTATUS Values](https://docs.microsoft.com/windows-hardware/drivers/kernel/ntstatus-values).
-
-
-
+If the operation fails or is pending, the return value is zero. To get extended error information, call [**GetLastError**](../errhandlingapi/nf-errhandlingapi-getlasterror.md).
 
 ## -see-also
 
-
-
-
-<a href="https://docs.microsoft.com/windows/desktop/api/ioapiset/nf-ioapiset-deviceiocontrol">DeviceIoControl</a>
-
-
-
-<a href="https://docs.microsoft.com/windows/desktop/FileIO/disk-management-control-codes">Disk Management Control Codes</a>
-
-
-
-<a href="https://docs.microsoft.com/windows/desktop/api/winioctl/ns-winioctl-verify_information">VERIFY_INFORMATION</a>
- 
-
- 
-
+ [DeviceIoControl](../ioapiset/nf-ioapiset-deviceiocontrol.md), [Disk Management Control Codes](/windows/win32/FileIO/disk-management-control-codes), [VERIFY_INFORMATION](ns-winioctl-verify_information.md)
