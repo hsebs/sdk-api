@@ -44,35 +44,23 @@ req.redist:
 
 # VERIFY_INFORMATION structure
 
-
 ## -description
 
-
-Contains information used to verify a disk extent. It is the output buffer for the 
-<a href="https://docs.microsoft.com/windows/desktop/api/winioctl/ni-winioctl-ioctl_disk_verify">IOCTL_DISK_VERIFY</a> control code.
-
+Contains information used to verify a disk extent. It is the input buffer for the [**IOCTL_DISK_VERIFY**](ni-winioctl-ioctl_disk_verify.md) control code.
 
 ## -struct-fields
-
-
-
 
 ### -field StartingOffset
 
 The starting offset of the disk extent. 
 
-
 ### -field Length
 
 The length of the disk extent, in bytes.
 
-
 ## -see-also
 
-
-
-
-<a href="https://docs.microsoft.com/windows/desktop/api/winioctl/ni-winioctl-ioctl_disk_verify">IOCTL_DISK_VERIFY</a>
+[IOCTL_DISK_VERIFY](ni-winioctl-ioctl_disk_verify.md)
  
 
  
