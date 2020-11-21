@@ -56,8 +56,8 @@ To perform this operation, call the [**DeviceIoControl**](../ioapiset/nf-ioapise
 ```cpp
 BOOL DeviceIoControl(
   (HANDLE) hDevice,              // handle to device
-  IOCTL_DISK_GET_DRIVE_GEOMETRY, //dwIoControlCode
-  NULL,                          //lpInBuffer
+  IOCTL_DISK_GET_DRIVE_GEOMETRY, // dwIoControlCode
+  NULL,                          // lpInBuffer
   0,                             // nInBufferSize
   (LPVOID) lpOutBuffer,          // output buffer
   (DWORD) nOutBufferSize,        // size of output buffer
